@@ -7,7 +7,7 @@ dedicate <- function(P,C,M,L) {
   
   # Create helper variables
   
-  # f <- 100 #  face value
+  f <- 100 #  face value
   num.bonds <- length(P) # number of bonds
   num.years <- length(L)
   
@@ -41,7 +41,7 @@ dedicate <- function(P,C,M,L) {
   for (year in c(1:num.years)) {
     # Compute coupon and maturity payment per unit of bond
     coupon.pmt <- c * B[year,]
-    maturity.pmt <- u * M[year,]
+    maturity.pmt <- f * M[year,]
     
     # Add cash in-flow per unit of bond
     A[year,1:num.bonds] <- coupon.pmt + maturity.pmt
@@ -55,7 +55,10 @@ dedicate <- function(P,C,M,L) {
   model$solution
 }
 
-l=c(15000, 18000, 20000, 20000, 16000, 15000, 12000, 10000)
+p <- c(102, 99, 101, 98, 98, 104, 100, 101, 102, 94)
+c <- c(5, 3.5, 5, 3.5, 4, 9, 6, 8, 9, 7)
+m <- c(1,2,2,3,4,5,5,6,7,8) 
+l <- c(12000, 18000, 20000, 20000, 16000, 15000, 12000, 10000)
 
 # Run function using test case
 dedicate(p, c, m, l)
