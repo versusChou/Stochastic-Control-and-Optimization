@@ -22,17 +22,26 @@ dedicate <- function(P,C,M,L) {
   dir <- c(rep(">=",num.years + num.bonds))
   
   # Helper matrices
-  M <- matrix(0, nrow = num.years, ncol = num.bonds) # M matrix for whether maturity payment is made
-  B <- matrix(0, nrow=num.years, ncol = num.bonds) # B matrix is for whether coupon payment is made
+  M.matrix <- matrix(0, nrow = num.years, ncol = num.bonds) # M matrix for whether maturity payment is made
+  B.matrix <- matrix(0, nrow = num.years, ncol = num.bonds) # B matrix is for whether coupon payment is made
   
   # Fill in B & M matrix
   for (bond_num in c(1:num.bonds)) {
-    maturity.yr <- m[bond_num]
-    coupon.yrs <- c(1:maturity.yr)
+    maturity.yr <- ifelse(M[bond_num] <= num.years, M[bond_num], num.years)
+    coupon.yrs <- ifelse(maturity.yr == 0, 'Maturity is 0',c(1:maturity.yr))
+
+    ifelse(coupon.yrs != 'Maturity is 0', M.matrix[maturity.yr, bond_num] <- 1, 0)
+    ifelse(coupon.yrs != 'Maturity is 0', B.matrix[1:maturity.yr, bond_num] <- 1, 0)
     
-    M[maturity.yr, bond_num] <- 1
-    B[coupon.yrs, bond_num] <- 1
   }
+  
+  #  for (bond_num in c(1:num.bonds)) {
+  #   maturity.yr <- m[bond_num]
+  #   coupon.yrs <- c(1:maturity.yr)
+  #   
+  #   M.matrix[maturity.yr, bond_num] <- 1
+  #   B.matrix[coupon.yrs, bond_num] <- 1
+  # }
   
   # Create A matrix
   A <- matrix(0, nrow = num.bonds + num.years, ncol = num.bonds)
@@ -40,8 +49,8 @@ dedicate <- function(P,C,M,L) {
   # Fill in A matrix columns for liability constraints. Row is year and column is bond #
   for (year in c(1:num.years)) {
     # Compute coupon and maturity payment per unit of bond
-    coupon.pmt <- c * B[year,]
-    maturity.pmt <- f * M[year,]
+    coupon.pmt <- C * B.matrix[year,]
+    maturity.pmt <- f * M.matrix[year,]
     
     # Add cash in-flow per unit of bond
     A[year,1:num.bonds] <- coupon.pmt + maturity.pmt
@@ -52,6 +61,7 @@ dedicate <- function(P,C,M,L) {
   
   # Solve
   model <- lp("min",c.model, A, dir, b, compute.sens = TRUE)
+  model
 }
 
 # Test Case
@@ -62,22 +72,46 @@ l <- c(12000, 18000, 20000, 20000, 16000, 15000, 12000, 10000)
 
 # Run function using test case
 q3.test <- dedicate(p, c, m, l)
-q3.test$solution
+
+# ------------ QUESTION 4 ---------------------------------
 
 # Read in wall street journal prices
 wsj <- read.csv('Bond Prices.csv')
+
 # Show data summary to make sure numerics aren't factors. Chg is a factor even though it should be number
 str(wsj)
+
 # Which level is not numeric? "unch."
 levels(wsj$Chg)
+
 # Change to numeric and convert NA to 0.
 wsj$Chg <- as.numeric(levels(wsj$Chg))[wsj$Chg]
 wsj$Chg[is.na(wsj$Chg)] <- 0
 
+# Change maturity to date
+wsj$Maturity <- as.Date(wsj$Maturity, "%m/%d/%y")
+
 # Preview wsj
 head(wsj)
 
-# Sensitivity
+# Portfolio start date
+start.date <- as.Date("1/1/2017", "%m/%d/%Y")
+
+# Define inputs to function
+price <- wsj$Asked
+coupon <- wsj$Coupon * 0.5 # each coupon payment is made semi-annually while the listed coupon is the annual payout
+liability <- c(9000000, 9000000, 10000000, 10000000, 6000000, 6000000, 9000000, 9000000, 10000000, 10000000, 5000000, 3000000)
+
+# Define maturity input
+maturity.dates <- wsj$Maturity # need to convert to months or years
+semi.annual <- difftime(maturity.dates,start.date, units="weeks") / 26 # convert weeks to semi-annual unit
+maturity <- floor(semi.annual) # Round down. For example, a bond that matures in 1.07 half-years (i.e. 6 months and some change) from today should have a maturity value of 1
+maturity <- as.numeric(maturity)
+  
+  
+q4.sol <- dedicate(price, coupon, maturity, liability)
+
+# Sensitivity of question 3 as a test
 
 constraints.idx <- c(1:q3.test$const.count) # Constraint index
 var.idx <- c((q3.test$const.count+1):(q3.test$const.count+q3.test$x.count)) # Variable index
@@ -100,4 +134,7 @@ constraint.sens # Display constraint sensitivities
 variable.sens # Display variable sensitivities. Not sure how to interpret these
 coef.sens # Display coefficient sensitivities
 
+# -------Sensitivity Analysis of Question 4 ----------------------------------
+
+q4.sol$duals.from
 
