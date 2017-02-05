@@ -40,14 +40,16 @@ dedicate <- function(P,C,M,L) {
   
   # Fill in B & M matrix
   for (bond_num in c(1:num.bonds)) {
-
-    num.coupon.pmt <- C.pay[bond_num]
     
-    maturity.yr <- min(num.years, M.face[bond_num])
-    coupon.yrs <- ifelse(num.coupon.pmt == 0, 0 ,min(num.years,num.coupon.pmt))
-
-    M.matrix[maturity.yr, bond_num] <- 1
-    B.matrix[1:coupon.yrs, bond_num] <- ifelse(coupon.yrs != 0, 1, 0)
+    if (M[bond_num] >= 0) { # only change M and B matrices if maturity isnt negative
+      num.coupon.pmt <- C.pay[bond_num]
+      
+      maturity.yr <- min(num.years, M.face[bond_num])
+      coupon.yrs <- ifelse(num.coupon.pmt == 0, 0 ,min(num.years,num.coupon.pmt))
+  
+      M.matrix[maturity.yr, bond_num] <- 1
+      B.matrix[1:coupon.yrs, bond_num] <- ifelse(coupon.yrs != 0, 1, 0)
+    } 
   }
   
   # Create A matrix
@@ -102,7 +104,7 @@ wsj$Maturity <- as.Date(wsj$Maturity, "%m/%d/%y")
 head(wsj)
 
 # Portfolio start date
-start.date <- as.Date("1/1/2017", "%m/%d/%Y")
+start.date <- as.Date("4/1/2017", "%m/%d/%Y")
 
 # Define inputs to function
 price <- wsj$Asked
