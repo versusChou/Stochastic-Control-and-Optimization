@@ -3,6 +3,11 @@ library(lpSolve)
 
 # Question 3
 
+# Helper function to convert bonds with 0 and non-integer maturity lengths to 1 and the ceiling (i.e. round up), respectively
+maturity.convert <- function(x) {
+  ifelse(x==0, 1, ceiling(x))
+}
+
 dedicate <- function(P,C,M,L) {
   
   # Create helper variables
@@ -25,23 +30,25 @@ dedicate <- function(P,C,M,L) {
   M.matrix <- matrix(0, nrow = num.years, ncol = num.bonds) # M matrix for whether maturity payment is made
   B.matrix <- matrix(0, nrow = num.years, ncol = num.bonds) # B matrix is for whether coupon payment is made
   
+  # Create time vectors for maturity and coupon. A bond that matures before the first liability would have a maturity of 0 but
+  # we would still get the face value. However, we won't get a coupon. So our M and B matrices need to capture this fact.
+  # If a bond matures in 1.5 years, the cash-flow from the face value shows up in year 2 but we only receive 2 annual coupons (assume annual for this example, not the HW)
+  # If a bond matures in 2 months, the cash flow from the face value shows up in year 1, but there is 0 coupon.
+  
+  M.face <- sapply(M, maturity.convert) # bonds with 0 maturity have value of 1; otherwise, bonds with maturities between integers are rounded up.
+  C.pay <- sapply(M, floor)
+  
   # Fill in B & M matrix
   for (bond_num in c(1:num.bonds)) {
-    maturity.yr <- ifelse(M[bond_num] <= num.years, M[bond_num], num.years)
-    coupon.yrs <- ifelse(maturity.yr == 0, 'Maturity is 0',c(1:maturity.yr))
 
-    ifelse(coupon.yrs != 'Maturity is 0', M.matrix[maturity.yr, bond_num] <- 1, 0)
-    ifelse(coupon.yrs != 'Maturity is 0', B.matrix[1:maturity.yr, bond_num] <- 1, 0)
+    num.coupon.pmt <- C.pay[bond_num]
     
+    maturity.yr <- min(num.years, M.face[bond_num])
+    coupon.yrs <- ifelse(num.coupon.pmt == 0, 0 ,min(num.years,num.coupon.pmt))
+
+    M.matrix[maturity.yr, bond_num] <- 1
+    B.matrix[1:coupon.yrs, bond_num] <- ifelse(coupon.yrs != 0, 1, 0)
   }
-  
-  #  for (bond_num in c(1:num.bonds)) {
-  #   maturity.yr <- m[bond_num]
-  #   coupon.yrs <- c(1:maturity.yr)
-  #   
-  #   M.matrix[maturity.yr, bond_num] <- 1
-  #   B.matrix[coupon.yrs, bond_num] <- 1
-  # }
   
   # Create A matrix
   A <- matrix(0, nrow = num.bonds + num.years, ncol = num.bonds)
@@ -72,7 +79,7 @@ l <- c(12000, 18000, 20000, 20000, 16000, 15000, 12000, 10000)
 
 # Run function using test case
 q3.test <- dedicate(p, c, m, l)
-
+q3.test$solution
 # ------------ QUESTION 4 ---------------------------------
 
 # Read in wall street journal prices
@@ -105,12 +112,12 @@ liability <- c(9000000, 9000000, 10000000, 10000000, 6000000, 6000000, 9000000, 
 # Define maturity input
 maturity.dates <- wsj$Maturity # need to convert to months or years
 semi.annual <- difftime(maturity.dates,start.date, units="weeks") / 26 # convert weeks to semi-annual unit
-maturity <- floor(semi.annual) # Round down. For example, a bond that matures in 1.07 half-years (i.e. 6 months and some change) from today should have a maturity value of 1
-maturity <- as.numeric(maturity)
+#c maturity <- floor(semi.annual) # Round down. For example, a bond that matures in 1.07 half-years (i.e. 6 months and some change) from today should have a maturity value of 1
+maturity <- as.numeric(semi.annual)
   
   
 q4.sol <- dedicate(price, coupon, maturity, liability)
-
+q4.sol$solution
 # Sensitivity of question 3 as a test
 
 constraints.idx <- c(1:q3.test$const.count) # Constraint index
@@ -136,5 +143,5 @@ coef.sens # Display coefficient sensitivities
 
 # -------Sensitivity Analysis of Question 4 ----------------------------------
 
-q4.sol$duals.from
+
 
