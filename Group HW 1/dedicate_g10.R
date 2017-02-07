@@ -17,7 +17,7 @@ dedicate <- function(P,C,M,L) {
   num.years <- length(L)
   
   # c.model is the vector of coefficients for the objective function
-  c.model <- P 
+  c.model <- P
   
   # Equality constraints
   b <- L # liabilities
@@ -36,7 +36,7 @@ dedicate <- function(P,C,M,L) {
   # If a bond matures in 2 months, the cash flow from the face value shows up in year 1, but there is 0 coupon.
   
   M.face <- sapply(M, maturity.convert) # bonds with 0 maturity have value of 1; otherwise, bonds with maturities between integers are rounded up.
-  C.pay <- sapply(M, floor)
+  C.pay <- sapply(M, maturity.convert)
   
   # Fill in B & M matrix
   for (bond_num in c(1:num.bonds)) {
@@ -45,7 +45,8 @@ dedicate <- function(P,C,M,L) {
       num.coupon.pmt <- C.pay[bond_num]
       
       maturity.yr <- min(num.years, M.face[bond_num])
-      coupon.yrs <- ifelse(num.coupon.pmt == 0, 0 ,min(num.years,num.coupon.pmt))
+      coupon.yrs <- maturity.yr
+      # coupon.yrs <- ifelse(num.coupon.pmt == 0, 0 ,min(num.years,num.coupon.pmt))
   
       M.matrix[maturity.yr, bond_num] <- 1
       B.matrix[1:coupon.yrs, bond_num] <- ifelse(coupon.yrs != 0, 1, 0)
@@ -104,7 +105,7 @@ wsj$Maturity <- as.Date(wsj$Maturity, "%m/%d/%y")
 head(wsj)
 
 # Portfolio start date
-start.date <- as.Date("4/1/2017", "%m/%d/%Y")
+start.date <- as.Date("1/1/2017", "%m/%d/%Y")
 
 # Define inputs to function
 price <- wsj$Asked
@@ -113,7 +114,7 @@ liability <- c(9000000, 9000000, 10000000, 10000000, 6000000, 6000000, 9000000, 
 
 # Define maturity input
 maturity.dates <- wsj$Maturity # need to convert to months or years
-semi.annual <- difftime(maturity.dates,start.date, units="weeks") / 26 # convert weeks to semi-annual unit
+semi.annual <- difftime(maturity.dates,start.date, units="day") / 180 # convert weeks to semi-annual unit
 #c maturity <- floor(semi.annual) # Round down. For example, a bond that matures in 1.07 half-years (i.e. 6 months and some change) from today should have a maturity value of 1
 maturity <- as.numeric(semi.annual)
   
@@ -145,5 +146,14 @@ coef.sens # Display coefficient sensitivities
 
 # -------Sensitivity Analysis of Question 4 ----------------------------------
 
+# Sensitivity Analysis
+q4.sol$duals
+dim(wsj)
 
+q4.duals <- data.frame(q4.sol$duals, q4.sol$duals.from, q4.sol$duals.to)
+q4.coef <- data.frame(q4.sol$sens.coef.from, q4.sol$sens.coef.to)
 
+write.csv(q4.duals, "q4_duals.csv")
+write.csv(q4.coef, "q4_coef.csv")
+write.csv(data.frame(wsj$Coupon, maturity, wsj$Asked), "q4_bonds.csv")
+write.csv(q4.sol$solution, "q4_solution.csv")
