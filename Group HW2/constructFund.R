@@ -137,20 +137,45 @@ find.sim.stocks <- function(rho, q, uniqueTickers) {
 
     # Solve
     q3.sol <- lp("max",c,A,dir,b, all.bin = TRUE)
-    # which(q3.sol$solution == 1)
+    q3.sol$solution
   }
   }  
 }
 
 # Test find.sim.stocks
-find.sim.stocks(corrMat[1:5,1:5], 3, unique_tickers[1:5])
+find.sim.stocks(corrMat[1:3,1:3], 2, unique_tickers[1:3])
+
 
 # Function calc.weights to calculate weights
-calc.weights <- function(price, fundStocks, numShares, uniqueTickers, uniqueDates) {
+constructFund <- function(rho, q, price, numShares, uniqueTickers, uniqueDates) {
   
-  N.days <- dim(sharesMat)[1]
-  final.date <- rownames(sharesMat)[N.days]
+  N.days <- dim(numShares)[1]
+  final.date <- rownames(numShares)[N.days]
+  num.stocks <- length(uniqueTickers)
+  V <- numShares[which(rownames(numShares) == final.date),]
+  
+  # Create x matrix (exclude y's from solution)
+  X.mat <- find.sim.stocks(rho, q, uniqueTickers)[1:(num.stocks*num.stocks)]
+  X.mat <- t(matrix(X.mat, num.stocks, num.stocks))
+  
+  # Calculate weights for each stock j
+  
+  W <- c()
+  for (i in 1:num.stocks) {
+    weight <- V %*% X.mat[,i]
+    W <- append(W,weight)
+  }
+  totalWeight <- sum(W)
+  totalWeight
+  
+  W <- W / totalWeight
+  W
 }
+
+test.code <- function(n, q) {
+  constructFund(corrMat, q, priceMat, sharesMat[,1:n], unique_tickers[1:n], unique_dates)
+}
+
 
 
 
