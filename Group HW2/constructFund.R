@@ -40,7 +40,8 @@ library(lpSolve)
   
 }
 
-# ------ Question 3 - Code integer program as a function to determine stocks for our index fund
+# ------ Question 3 - Code integer program as a function to determine weights for our index fund
+# find.sim.stocks finds the j stocks that are most similar to the index
 find.sim.stocks <- function(rho, q, uniqueTickers) {
 {
   
@@ -54,117 +55,102 @@ find.sim.stocks <- function(rho, q, uniqueTickers) {
     c.x <- append(c.x, rho[,j])
   }
   
-
-
   c.y <- rep(0,N) # create c vector for y_j
   
   c <- append(c.x, c.y) # final c vector
 
   # Create A matrix
   n.col <- length(c)
-  # 
-  # num.x <- length(c.x)
-  # num.y <- length(c.y)
-  # 
-  # A <- matrix(0,nrow = 0, ncol = n.col)
-  # 
+  
+  num.x <- length(c.x)
+  num.y <- length(c.y)
+  
+  A <- matrix(0,nrow = 0, ncol = n.col)
+  
   # # Create b vector
-  # b <- c()
+  b <- c()
   # 
-  # # Create dir vector
-  # dir <- c()
-  # 
-  # # Constraint 1: Sum of y_j = q
-  # A.1 <- c(rep(0, num.x), rep(1, num.y))
-  # A <- rbind(A, A.1)
-  # 
-  # b <- append(b,q)
-  # 
-  # dir <- append(dir, "=")
-  # 
-  # # Constraint 2 - For each stock i, the sum of x_i,1 to x_i,j must equal 1. 
-  # # In other words, every stock must only have 1 representative stock.
-  # # Our x-vector is [x_(1,1), x_(1,2), ..., x_(100,1),...x_(100,100)]
-  # 
-  # for (j in (1:N)) { # Add constraint 2 to A matrix
-  #   A.2 <- rep(0, num.x + num.y)
-  #   b.2 <- 1
-  #   
-  #   start.ix <- 100*(j-1) + 1
-  #   end.ix <- 100*j
-  #   constraint.2.range <- c(start.ix:end.ix)
-  #   
-  #   A.2[constraint.2.range] <- 1
-  #   
-  #   A <- rbind(A, A.2)
-  #   b <- append(b, b.2)
-  #   dir <- append(dir, "=")
-  # }
-  # 
-  # # Constraint 3 - Stock i can only be represented by stock j if stock i is in the fund
-  # {
-  #   # For x constraints, create identity matrix.
-  #   
-  #   A.3.x <- diag(1,num.x) # matrix of x values for constraint 3
-  #   dir <- append(dir, rep("<=",num.x))
-  #   
-  #   # For y constraints, create columns of -1 for every group of 100 rows
-  #   
-  #   A.3.y <- matrix(0,0,num.y)
-  #   
-  #   for (j in 1:N) {
-  #     
-  #     A.3.y.temp <- matrix(0,N, N)
-  #     A.3.y.temp[1:N, j] <- -1
-  #     
-  #     A.3.y <- rbind(A.3.y, A.3.y.temp)
-  #   }
-  #   
-  #   # To create final A matrix for constraint 3, cbind x and y matrices for constraint 3
-  #   A.3 <- cbind(A.3.x, A.3.y)
-  #   
-  #   # Rbind constraint 3's A-matrix to the overall A matrix
-  #   A <- rbind(A, A.3)
-  #   
-  #   # Add constraint 3 to b vector
-  #   b.3 <- rep(0, num.x)
-  #   b <- append(b, b.3)
-  #   
-  #   # Add direction vector
-  #   
-  #   
-  #   # Solve
-  #   # q3.sol <- lp("max",c,A,dir,b, all.bin = TRUE)
+  # Create dir vector
+  dir <- c()
+  
+  # Constraint 1: Sum of y_j = q
+  A.1 <- c(rep(0, num.x), rep(1, num.y))
+  A <- rbind(A, A.1)
+
+  b <- append(b,q)
+  
+  dir <- append(dir, "=")
+  
+  # Constraint 2 - For each stock i, the sum of x_i,1 to x_i,j must equal 1. 
+  # In other words, every stock must only have 1 representative stock.
+  # Our x-vector is [x_(1,1), x_(1,2), ..., x_(100,1),...x_(100,100)]
+
+  for (j in (1:N)) { # Add constraint 2 to A matrix
+    A.2 <- rep(0, num.x + num.y)
+    b.2 <- 1
+  
+    start.ix <- N*(j-1) + 1
+    end.ix <- N*j
+    constraint.2.range <- c(start.ix:end.ix)
+
+    A.2[constraint.2.range] <- 1
+
+    A <- rbind(A, A.2)
+    b <- append(b, b.2)
+    dir <- append(dir, "=")
   }
   
+  # Constraint 3 - Stock i can only be represented by stock j if stock i is in the fund
+  {
+    # For x constraints, create identity matrix.
+
+    A.3.x <- diag(1,num.x) # matrix of x values for constraint 3
+    dir <- append(dir, rep("<=",num.x))
+
+    # For y constraints, create columns of -1 for every group of 100 rows
+
+    A.3.y <- matrix(0,0,num.y)
+
+    for (j in 1:N) {
+
+      A.3.y.temp <- matrix(0,N, N)
+      A.3.y.temp[1:N,] <- diag(-1,N)
+      # A.3.y.temp[1:N, j] <- -1
+  
+      A.3.y <- rbind(A.3.y, A.3.y.temp)
+    }
+
+    # To create final A matrix for constraint 3, cbind x and y matrices for constraint 3
+    A.3 <- cbind(A.3.x, A.3.y)
+
+    # Rbind constraint 3's A-matrix to the overall A matrix
+    A <- rbind(A, A.3)
+
+    # Add constraint 3 to b vector
+    b.3 <- rep(0, num.x)
+    b <- append(b, b.3)
+    
+    # cbind(A,dir,b)
+    
+    # sol.test <- c(0,1,0,1,0,0,0,0,0,1,1,0)
+    # A[5:13,] %*% sol.test
+
+    # Solve
+    q3.sol <- lp("max",c,A,dir,b, all.bin = TRUE)
+    # which(q3.sol$solution == 1)
+  }
   }  
+}
+
+# Test find.sim.stocks
+find.sim.stocks(corrMat[1:5,1:5], 3, unique_tickers[1:5])
+
+# Function calc.weights to calculate weights
+calc.weights <- function(price, fundStocks, numShares, uniqueTickers, uniqueDates) {
+  
+  N.days <- dim(sharesMat)[1]
+  final.date <- rownames(sharesMat)[N.days]
+}
 
 
-find.sim.stocks(corrMat[1:40,1:40], 5, unique_tickers[1:40])
 
-
-
-
-
-
-# Test logic. Suppose x_ij is what we are choosing
-# testMat <- matrix(0,100,100)
-# 
-# i.idx <- sample(1:100, 25)
-# j.idx <- sample(1:100, 25)
-# 
-# for (i in i.idx) {
-#   for (j in i.idx) {
-#     testMat[i,j] <- 1
-#   }
-# }
-# 
-# resultMat <- corrMat %*% testMat
-# 
-# total <- 0
-# for (i in 1:100) {
-#   for (j in 1:100) {
-#     total <- total + resultMat[i,j]
-#   }
-# }
-# total

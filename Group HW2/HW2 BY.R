@@ -86,8 +86,8 @@ for (j in (1:N)) { # Add constraint 2 to A matrix
   A.2 <- rep(0, num.x + num.y)
   b.2 <- 1
   
-  start.ix <- 100*(j-1) + 1
-  end.ix <- 100*j
+  start.ix <- N*(j-1) + 1
+  end.ix <- N*j
   constraint.2.range <- c(start.ix:end.ix)
   
   A.2[constraint.2.range] <- 1
@@ -110,7 +110,7 @@ A.3.y <- matrix(0,0,num.y)
 
 for (j in 1:N) {
   
-  A.3.y.temp <- matrix(0,N, N)
+  A.3.y.temp <- matrix(0, N, N)
   A.3.y.temp[1:N, j] <- -1
   
   A.3.y <- rbind(A.3.y, A.3.y.temp)
