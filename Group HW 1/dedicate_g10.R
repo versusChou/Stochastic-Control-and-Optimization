@@ -48,7 +48,7 @@ dedicate <- function(P,C,M,L) {
       coupon.yrs <- maturity.yr
       # coupon.yrs <- ifelse(num.coupon.pmt == 0, 0 ,min(num.years,num.coupon.pmt))
   
-      M.matrix[maturity.yr, bond_num] <- 1
+      M.matrix[maturity.yr, bond_num] <- ifelse(num.years < M.face[bond_num],0,1)
       B.matrix[1:coupon.yrs, bond_num] <- ifelse(coupon.yrs != 0, 1, 0)
     } 
   }
