@@ -1,49 +1,12 @@
 setwd("~/Documents/Github/Optimization/Group HW2")
 library(lpSolve)
 # Load data
-{
-  # Read in clean data from cleaning file
-  source('readData.R')
-  
-  # Daily Price Matrix. Column 40 is NA for first few weeks
-  # head(priceMat)
-  
-  # Shares Matrix
-  # head(sharesMat)
-  
-  # Monthly Price Matrix
-  # head(monthlyPriceMat) 
-  
-  # Unique tickers & dates
-  # unique_dates
-  # unique_tickers
-}
 
-# ------ Question 1 - Calculate daily returns for each stock
-{
+source('readData.R')
   
-  num.price.rows <- dim(priceMat)[1] # store number of rows in price matrix
-  
-  dailyReturnMat <- priceMat[2:num.price.rows, ] # use price matrix as template for daily return matrix
-  
-  for (i in 2:num.price.rows) {
-    return.value <- (priceMat[i,] / priceMat[i-1,]) - 1
-    dailyReturnMat[i-1,] <- return.value
-  }
-  
-  # head(dailyReturnMat) # matrix of daily returns
-}
+# Find q similar stocks
 
-# ------ Question 2 - Correlation matrix for returns of 100 stocks
-{
-  corrMat <- cor(dailyReturnMat, use = "complete.obs")
-  
-}
-
-# ------ Question 3 - Code integer program as a function to determine weights for our index fund
-# find.sim.stocks finds the j stocks that are most similar to the index
 find.sim.stocks <- function(rho, q, uniqueTickers) {
-{
   
   N <- length(uniqueTickers)
 
@@ -133,14 +96,10 @@ find.sim.stocks <- function(rho, q, uniqueTickers) {
     q3.sol <- lp("max",c,A,dir,b, all.bin = TRUE)
     q3.sol$solution
   }
-  }  
-}
-
-# Test find.sim.stocks
-find.sim.stocks(corrMat[1:3,1:3], 2, unique_tickers[1:3])
-
+}  
 
 # Function calc.weights to calculate weights
+
 constructFund <- function(rho, q, price, numShares, uniqueTickers, uniqueDates) {
   
   N.days <- length(uniqueDates)
@@ -163,10 +122,6 @@ constructFund <- function(rho, q, price, numShares, uniqueTickers, uniqueDates) 
   
   W <- W / totalWeight
   W
-}
-
-test.code <- function(n, q) {
-  constructFund(corrMat[1:n,1:n], q, priceMat[,1:n], sharesMat[,1:n], unique_tickers[1:n], unique_dates)
 }
 
 

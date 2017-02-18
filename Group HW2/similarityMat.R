@@ -19,9 +19,6 @@ similarityMat <- function(price_matrix, shares_matrix, uniqueTickers, uniqueDate
   return(rhoMat)
 }
 
-# Compute weights for Q5
-
-
 # Calculate portfolio return
 portfolioReturn <- function(weights) {
   base.value <- 1000000
