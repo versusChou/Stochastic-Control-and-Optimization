@@ -1,0 +1,57 @@
+---
+title: "HW2 Report"
+author: "Billy Yuan"
+date: "2/17/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+setwd("~/Documents/Github/Optimization/Group HW2")
+library(lpSolve)
+library(ggplot2)
+source('constructFund.R')
+```
+
+
+```{r, include=FALSE}
+# ----- Question 4: Compare performance of my fund and the index
+base.index <- 2660.93 # NASDAQ on Dec 2012
+fund.weights <- test.code(100,25)
+
+nasdaq.2013 <- c(base.index, 2731.53, 2738.58, 2818.69, 2887.44, 
+                 2981.76, 2909.60, 3090.19, 3073.81, 
+                 3218.20, 3377.73, 3487.82, 3592.00) # Dec 2012 + 2013 monthly NASDAQ
+
+nasdaq.return <- c() # monthly returns for NASDAQ 2013
+
+# Create monthly returns for NASDAQ
+for (month in 2:length(nasdaq.2013)) {
+  return <- (nasdaq.2013[month] / nasdaq.2013[month - 1]) - 1
+  nasdaq.return <- c(nasdaq.return, return)
+}
+
+# Create portfolio using our fund
+base.value <- 1000000
+allocate.funds <-  fund.weights * base.value # total amount allowed to spend for each stock
+shares.portfolio <- allocate.funds / tail(priceMat,1) # number of shares purchased
+
+# Calculate portfolio value at the end of every month, including base month of 12/2012
+portfolio.value <- c(base.value)
+for (i in 1:12) {
+  result <- sum(monthlyPriceMat[i,] * shares.portfolio) # portfolio value at the end of month
+  portfolio.value <- c(portfolio.value, result)
+}
+# Calculate monthly returns of portfolio for 2013
+portfolio.return <- c()
+
+for (month in 2:length(portfolio.value)) {
+  return <- (portfolio.value[month] / portfolio.value[month - 1]) - 1
+  portfolio.return <- c(portfolio.return, return)
+}
+
+plot(portfolio.return * 100, nasdaq.return * 100, xlab = 'Portfolio Return %', ylab = 'NASDAQ Return %', main = 'Portfolio vs. NASDAQ Return')
+
+# write.csv(cbind(portfolio.return, nasdaq.return), file = 'q4chart.csv')
+  
+```

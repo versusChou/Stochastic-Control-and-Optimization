@@ -36,7 +36,7 @@ library(lpSolve)
 
 # ------ Question 2 - Correlation matrix for returns of 100 stocks
 {
-  corrMat <- cor(monthlyPriceMat, use = "complete.obs")
+  corrMat <- cor(dailyReturnMat, use = "complete.obs")
   
 }
 
@@ -168,7 +168,6 @@ constructFund <- function(rho, q, price, numShares, uniqueTickers, uniqueDates) 
 test.code <- function(n, q) {
   constructFund(corrMat[1:n,1:n], q, priceMat[,1:n], sharesMat[,1:n], unique_tickers[1:n], unique_dates)
 }
-test.code(10,5)
 
 
 
