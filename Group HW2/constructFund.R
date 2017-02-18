@@ -155,8 +155,8 @@ constructFund <- function(rho, q, price, numShares, uniqueTickers, uniqueDates) 
   # Calculate weights for each stock j
   
   W <- c()
-  for (i in 1:num.stocks) {
-    weight <- V %*% X.mat[,i]
+  for (j in 1:num.stocks) {
+    weight <- V %*% X.mat[,j]
     W <- append(W,weight)
   }
   totalWeight <- sum(W)
