@@ -1,4 +1,4 @@
-setwd("~/Documents/Github/Optimization/Group HW2")
+# setwd("~/Documents/Github/Optimization/Group HW2")
 library(lpSolve)
 # Load data
 
@@ -15,7 +15,8 @@ find.sim.stocks <- function(rho, q, uniqueTickers) {
   c.x <- c() # create c vector for x_ij
   
   for (j in 1:N) { # Loop through each column and append column to c vector
-    c.x <- append(c.x, rho[,j])
+    # c.x <- append(c.x, rho[,j])
+    c.x <- append(c.x, rho[j,])
   }
   
   c.y <- rep(0,N) # create c vector for y_j
@@ -103,13 +104,16 @@ find.sim.stocks <- function(rho, q, uniqueTickers) {
 constructFund <- function(rho, q, price, numShares, uniqueTickers, uniqueDates) {
   
   N.days <- length(uniqueDates)
-  final.date <- rownames(numShares)[N.days]
+  final.date <- rownames(tail(numShares,1))
   num.stocks <- length(uniqueTickers)
-  V <- numShares[which(rownames(numShares) == final.date),]
+  price.last.day <- tail(price,1)
+
+  V <- tail(numShares,1) * price.last.day
   
   # Create x matrix (exclude y's from solution)
   X.mat <- find.sim.stocks(rho, q, uniqueTickers)[1:(num.stocks*num.stocks)]
   X.mat <- t(matrix(X.mat, num.stocks, num.stocks))
+  
   
   # Calculate weights for each stock j
   
@@ -119,10 +123,13 @@ constructFund <- function(rho, q, price, numShares, uniqueTickers, uniqueDates) 
     W <- append(W,weight)
   }
   totalWeight <- sum(W)
-  
+
   W <- W / totalWeight
-  W
+
+  X.mat
 }
+
+constructFund(corrMat[1:5, 1:5], 3, priceMat[,1:5], sharesMat[,1:5],unique_tickers[1:5], unique_dates)
 
 
 

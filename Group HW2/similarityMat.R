@@ -1,4 +1,4 @@
-setwd("~/Documents/Github/Optimization/Group HW2")
+# setwd("~/Documents/Github/Optimization/Group HW2")
 
 source('readData.R')
 
@@ -19,7 +19,7 @@ similarityMat <- function(price_matrix, shares_matrix, uniqueTickers, uniqueDate
   return(rhoMat)
 }
 
-# Calculate portfolio return
+# Calculate portfolio return. This is not part of a HW deliverable. I just had to store this function somewhere.
 portfolioReturn <- function(weights) {
   base.value <- 1000000
   allocate.funds <-  weights * base.value # total amount allowed to spend for each stock
