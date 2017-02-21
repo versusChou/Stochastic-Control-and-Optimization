@@ -103,8 +103,7 @@ find.sim.stocks <- function(rho, q, uniqueTickers) {
 
 constructFund <- function(rho, q, price, numShares, uniqueTickers, uniqueDates) {
   
-  N.days <- length(uniqueDates)
-  final.date <- rownames(tail(numShares,1))
+  # N.days <- length(uniqueDates)
   num.stocks <- length(uniqueTickers)
   price.last.day <- tail(price,1)
 
@@ -125,11 +124,8 @@ constructFund <- function(rho, q, price, numShares, uniqueTickers, uniqueDates) 
   totalWeight <- sum(W)
 
   W <- W / totalWeight
-
-  X.mat
+  W
 }
-
-constructFund(corrMat[1:5, 1:5], 3, priceMat[,1:5], sharesMat[,1:5],unique_tickers[1:5], unique_dates)
 
 
 
