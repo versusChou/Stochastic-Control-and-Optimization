@@ -3,10 +3,14 @@ load(file = 'data.rdata')
 library(gurobi)
 library(glmnet)
 
-findBeta <- function(X_, y_) {
+findBeta <- function(X_, y_, numZ) {
+  
   # Number of variables
   k <- dim(X_)[2]
   M <- 1000
+  
+  # Add z's
+  X_ <- cbind(X_, matrix(0,dim(X_)[1],k))
   
   # Make constraints
   
@@ -16,7 +20,7 @@ findBeta <- function(X_, y_) {
   A <- matrix(0,1,2*k) # make A matrix.
   A[,(k+1):(2*k)] <- 1 # last k columns are for z variables
   
-  b <- c(k)
+  b <- c(numZ)
   
   
   # Constraint 2A: -beta - Mz <= 0 
@@ -41,16 +45,28 @@ findBeta <- function(X_, y_) {
   
   # Make dir
   dir <- rep("<=", (2*k)+1)
+
   
-  test.X <- X[1:10,1:3] 
-  test.y <- y[1:10]
+  # Create min function
+  Q <- .5 * t(X_) %*% (X_)
+  c <- -.5 * t(X_) %*% y_
+  alpha <- t(y_) %*% y_
   
-  Q <- t(X_) %*% X_
-  c <- -t(X_) %*% y_
+  model <- list()
+  params <- list(Method=2)
   
+  model$A <- A
+  model$Q <- Q
+  model$obj <- c
+  model$objcon <- alpha
+  model$modelsense <- "min"
+  model$rhs <- b
+  model$sense <- dir
+  model$vtype <- append(rep('C',k),rep('B',k))
   
+  gurobi(model, params)
+  # cbind(A, dir, b)
 }
 
-findBeta(X[1:3, 1:3], y[1:3])
-
-
+# Check if our solution matches actual solution
+findBeta(X[1:dim(X)[1],1:64], y, 8)$x[65:128] == beta_real
