@@ -1468,3 +1468,874 @@ Pool objective bound 4261.36
 
 Optimal solution found (tolerance 1.00e-04)
 Best objective 4.261360009191e+03, best bound 4.261360009191e+03, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 11 10:34:19 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [1e+00, 3e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 4782.57
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 4.258073e+03, 86 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 4258.07279    0   25 4782.56789 4258.07279  11.0%     -    0s
+H    0     0                    4506.1389559 4258.07279  5.51%     -    0s
+H    0     0                    4261.3600092 4258.07279  0.08%     -    0s
+     0     0     cutoff    0      4261.36001 4261.36001  0.00%     -    0s
+
+Explored 0 nodes (86 simplex iterations) in 0.02 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 4261.36 4506.14 4782.57 
+Pool objective bound 4261.36
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.261360009191e+03, best bound 4.261360009191e+03, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 11 11:12:49 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [1e+00, 3e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 4782.57
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 4.258073e+03, 86 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 4258.07279    0   25 4782.56789 4258.07279  11.0%     -    0s
+H    0     0                    4506.1389559 4258.07279  5.51%     -    0s
+H    0     0                    4261.3600092 4258.07279  0.08%     -    0s
+     0     0     cutoff    0      4261.36001 4261.36001  0.00%     -    0s
+
+Explored 0 nodes (86 simplex iterations) in 0.02 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 4261.36 4506.14 4782.57 
+Pool objective bound 4261.36
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.261360009191e+03, best bound 4.261360009191e+03, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 11 11:12:54 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [1e+00, 3e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 4782.57
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 4.258073e+03, 86 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 4258.07279    0   25 4782.56789 4258.07279  11.0%     -    0s
+H    0     0                    4506.1389559 4258.07279  5.51%     -    0s
+H    0     0                    4261.3600092 4258.07279  0.08%     -    0s
+     0     0     cutoff    0      4261.36001 4261.36001  0.00%     -    0s
+
+Explored 0 nodes (86 simplex iterations) in 0.03 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 4261.36 4506.14 4782.57 
+Pool objective bound 4261.36
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.261360009191e+03, best bound 4.261360009191e+03, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 11 11:12:59 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [1e+00, 3e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 4782.57
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 4.258073e+03, 86 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 4258.07279    0   25 4782.56789 4258.07279  11.0%     -    0s
+H    0     0                    4506.1389559 4258.07279  5.51%     -    0s
+H    0     0                    4261.3600092 4258.07279  0.08%     -    0s
+     0     0     cutoff    0      4261.36001 4261.36001  0.00%     -    0s
+
+Explored 0 nodes (86 simplex iterations) in 0.02 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 4261.36 4506.14 4782.57 
+Pool objective bound 4261.36
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.261360009191e+03, best bound 4.261360009191e+03, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 12:47:58 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [1e+00, 3e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 4782.57
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.04s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 4.258073e+03, 86 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 4258.07279    0   25 4782.56789 4258.07279  11.0%     -    0s
+H    0     0                    4506.1389559 4258.07279  5.51%     -    0s
+H    0     0                    4261.3600092 4258.07279  0.08%     -    0s
+     0     0     cutoff    0      4261.36001 4261.36001  0.00%     -    0s
+
+Explored 0 nodes (86 simplex iterations) in 0.10 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 4261.36 4506.14 4782.57 
+Pool objective bound 4261.36
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.261360009191e+03, best bound 4.261360009191e+03, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 13:04:59 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [1e+00, 3e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 4782.57
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 4.258073e+03, 86 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 4258.07279    0   25 4782.56789 4258.07279  11.0%     -    0s
+H    0     0                    4506.1389559 4258.07279  5.51%     -    0s
+H    0     0                    4261.3600092 4258.07279  0.08%     -    0s
+     0     0     cutoff    0      4261.36001 4261.36001  0.00%     -    0s
+
+Explored 0 nodes (86 simplex iterations) in 0.03 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 4261.36 4506.14 4782.57 
+Pool objective bound 4261.36
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.261360009191e+03, best bound 4.261360009191e+03, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 13:22:31 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 4782.57
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.01s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 2.684587e+03, 86 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 2684.58749    0   26 4782.56789 2684.58749  43.9%     -    0s
+H    0     0                    3620.5101215 2684.58749  25.9%     -    0s
+H    0     0                    2697.7363717 2684.58749  0.49%     -    0s
+     0     0     cutoff    0      2697.73637 2697.73637  0.00%     -    0s
+
+Explored 0 nodes (86 simplex iterations) in 0.03 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 2697.74 3620.51 4782.57 
+Pool objective bound 2697.74
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.697736371727e+03, best bound 2.697736371727e+03, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 13:23:06 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 2391.28
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 2.933035e+02, 86 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  293.30355    0   26 2391.28394  293.30355  87.7%     -    0s
+H    0     0                    1229.2261774  293.30355  76.1%     -    0s
+H    0     0                     306.4524276  293.30355  4.29%     -    0s
+     0     0     cutoff    0       306.45243  306.45243  0.00%     -    0s
+
+Explored 0 nodes (86 simplex iterations) in 0.02 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 306.452 1229.23 2391.28 
+Pool objective bound 306.452
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.064524275542e+02, best bound 3.064524275542e+02, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 13:34:57 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 2391.28
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 2.390721e+03, 5 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 2390.72077    0    1 2391.28394 2390.72077  0.02%     -    0s
+H    0     0                    2390.7209215 2390.72077  0.00%     -    0s
+
+Explored 0 nodes (5 simplex iterations) in 0.00 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 2390.72 2391.28 
+Pool objective bound 2390.72
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.390720921517e+03, best bound 2.390720766386e+03, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 13:35:10 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 2391.28
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 2.933035e+02, 86 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  293.30355    0   26 2391.28394  293.30355  87.7%     -    0s
+H    0     0                    1229.2261774  293.30355  76.1%     -    0s
+H    0     0                     306.4524276  293.30355  4.29%     -    0s
+     0     0     cutoff    0       306.45243  306.45243  0.00%     -    0s
+
+Explored 0 nodes (86 simplex iterations) in 0.02 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 306.452 1229.23 2391.28 
+Pool objective bound 306.452
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.064524275542e+02, best bound 3.064524275542e+02, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 13:52:26 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 2391.28
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 2.933035e+02, 86 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  293.30355    0   28 2391.28394  293.30355  87.7%     -    0s
+H    0     0                    1154.6672134  293.30355  74.6%     -    0s
+H    0     0                     306.4524276  293.30355  4.29%     -    0s
+     0     0     cutoff    0       306.45243  306.45243  0.00%     -    0s
+
+Explored 0 nodes (86 simplex iterations) in 0.03 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 306.452 1154.67 2391.28 
+Pool objective bound 306.452
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.064524275542e+02, best bound 3.064524275542e+02, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 13:57:08 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 2391.28
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 2.933035e+02, 86 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  293.30355    0   28 2391.28394  293.30355  87.7%     -    0s
+H    0     0                    1154.6672134  293.30355  74.6%     -    0s
+H    0     0                     306.4524276  293.30355  4.29%     -    0s
+     0     0     cutoff    0       306.45243  306.45243  0.00%     -    0s
+
+Explored 0 nodes (86 simplex iterations) in 0.02 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 306.452 1154.67 2391.28 
+Pool objective bound 306.452
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.064524275542e+02, best bound 3.064524275542e+02, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 13:57:23 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 2391.28
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 2.933035e+02, 86 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  293.30355    0   28 2391.28394  293.30355  87.7%     -    0s
+H    0     0                    1154.6672134  293.30355  74.6%     -    0s
+H    0     0                     306.4524276  293.30355  4.29%     -    0s
+     0     0     cutoff    0       306.45243  306.45243  0.00%     -    0s
+
+Explored 0 nodes (86 simplex iterations) in 0.02 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 306.452 1154.67 2391.28 
+Pool objective bound 306.452
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.064524275542e+02, best bound 3.064524275542e+02, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 13:57:43 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 2391.28
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 2.933035e+02, 86 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  293.30355    0   28 2391.28394  293.30355  87.7%     -    0s
+H    0     0                    1154.6672134  293.30355  74.6%     -    0s
+H    0     0                     306.4524276  293.30355  4.29%     -    0s
+     0     0     cutoff    0       306.45243  306.45243  0.00%     -    0s
+
+Explored 0 nodes (86 simplex iterations) in 0.02 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 306.452 1154.67 2391.28 
+Pool objective bound 306.452
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.064524275542e+02, best bound 3.064524275542e+02, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 13:59:03 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 2391.28
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 2.933035e+02, 86 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  293.30355    0   28 2391.28394  293.30355  87.7%     -    0s
+H    0     0                    1154.6672134  293.30355  74.6%     -    0s
+H    0     0                     306.4524276  293.30355  4.29%     -    0s
+     0     0     cutoff    0       306.45243  306.45243  0.00%     -    0s
+
+Explored 0 nodes (86 simplex iterations) in 0.02 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 306.452 1154.67 2391.28 
+Pool objective bound 306.452
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.064524275542e+02, best bound 3.064524275542e+02, gap 0.0000%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 13:59:13 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 2391.28
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 3.019598e+02, 117 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  301.95979    0   22 2391.28394  301.95979  87.4%     -    0s
+H    0     0                     312.5273547  301.95979  3.38%     -    0s
+     0     0  312.52433    0    2  312.52735  312.52433  0.00%     -    0s
+
+Explored 0 nodes (163 simplex iterations) in 0.01 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 312.527 2391.28 
+Pool objective bound 312.524
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.125273547409e+02, best bound 3.125243255314e+02, gap 0.0010%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 14:00:46 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 2391.28
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 3.019598e+02, 117 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  301.95979    0   22 2391.28394  301.95979  87.4%     -    0s
+H    0     0                     312.5273547  301.95979  3.38%     -    0s
+     0     0  312.52433    0    2  312.52735  312.52433  0.00%     -    0s
+
+Explored 0 nodes (163 simplex iterations) in 0.01 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 312.527 2391.28 
+Pool objective bound 312.524
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.125273547409e+02, best bound 3.125243255314e+02, gap 0.0010%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 14:00:46 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 2391.28
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 3.019598e+02, 117 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  301.95979    0   22 2391.28394  301.95979  87.4%     -    0s
+H    0     0                     312.5273547  301.95979  3.38%     -    0s
+     0     0  312.52433    0    2  312.52735  312.52433  0.00%     -    0s
+
+Explored 0 nodes (163 simplex iterations) in 0.01 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 312.527 2391.28 
+Pool objective bound 312.524
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.125273547409e+02, best bound 3.125243255314e+02, gap 0.0010%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 14:00:55 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 2391.28
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 3.019598e+02, 117 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  301.95979    0   22 2391.28394  301.95979  87.4%     -    0s
+H    0     0                     312.5273547  301.95979  3.38%     -    0s
+     0     0  312.52433    0    2  312.52735  312.52433  0.00%     -    0s
+
+Explored 0 nodes (163 simplex iterations) in 0.01 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 312.527 2391.28 
+Pool objective bound 312.524
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.125273547409e+02, best bound 3.125243255314e+02, gap 0.0010%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 14:00:55 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 2391.28
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 3.019598e+02, 117 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  301.95979    0   22 2391.28394  301.95979  87.4%     -    0s
+H    0     0                     312.5273547  301.95979  3.38%     -    0s
+     0     0  312.52433    0    2  312.52735  312.52433  0.00%     -    0s
+
+Explored 0 nodes (163 simplex iterations) in 0.01 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 312.527 2391.28 
+Pool objective bound 312.524
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.125273547409e+02, best bound 3.125243255314e+02, gap 0.0010%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 14:01:12 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 2391.28
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 3.019598e+02, 117 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  301.95979    0   22 2391.28394  301.95979  87.4%     -    0s
+H    0     0                     312.5273547  301.95979  3.38%     -    0s
+     0     0  312.52433    0    2  312.52735  312.52433  0.00%     -    0s
+
+Explored 0 nodes (163 simplex iterations) in 0.01 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 312.527 2391.28 
+Pool objective bound 312.524
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.125273547409e+02, best bound 3.125243255314e+02, gap 0.0010%
+
+Gurobi 7.0.2 (mac64) logging started Sat Mar 18 14:01:12 2017
+
+Warning for adding variables: zero or small (< 1e-13) coefficients, ignored
+Optimize a model with 129 rows, 128 columns and 320 nonzeros
+Model has 2080 quadratic objective terms
+Variable types: 64 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [3e+00, 6e+02]
+  QObjective range [4e-03, 6e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e+00, 8e+00]
+Found heuristic solution: objective 2391.28
+Presolve removed 64 rows and 0 columns
+Presolve time: 0.00s
+Presolved: 65 rows, 128 columns, 192 nonzeros
+Presolved model has 2080 quadratic objective terms
+Warning: Barrier not supported for solving MIQP root relaxation
+         Using dual simplex
+Variable types: 64 continuous, 64 integer (64 binary)
+
+Root relaxation: objective 3.019598e+02, 117 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  301.95979    0   22 2391.28394  301.95979  87.4%     -    0s
+H    0     0                     312.5273547  301.95979  3.38%     -    0s
+     0     0  312.52433    0    2  312.52735  312.52433  0.00%     -    0s
+
+Explored 0 nodes (163 simplex iterations) in 0.01 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 312.527 2391.28 
+Pool objective bound 312.524
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.125273547409e+02, best bound 3.125243255314e+02, gap 0.0010%

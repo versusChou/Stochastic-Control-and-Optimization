@@ -1,0 +1,49 @@
+---
+title: 'Group Proj #3'
+author: "Billy Yuan"
+date: "3/18/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### Representing SSE in Matrix Form
+
+$$\frac{1}{2}\sum_{i}(y_{i} - X\beta)^{2} = \frac{1}{2}\beta^{T}X^{T}X\beta - Y^{T}X\beta + \frac{1}{2}Y^{T}Y$$ 
+
+where $Y$ is the vector of actual values.
+
+### Formulation
+
+Gurobi takes the following format:
+
+$$\beta^{T}Q\beta + c^{T}\beta + alpha$$
+We could extract the parts from the expanded notation of SSE above into $Q, c, alpha$
+
+Let $Q = \frac{1}{2}X^{T}X$ 
+
+Let $c = (-Y^{T}X)^{T}$
+
+Let $alpha = \frac{1}{2}Y^{T}Y$
+
+*Choose* $\beta_{i}, z_{i}$ where $\beta_{i}$ is the beta coefficient and $z_{i}$ is a binary for whether the $i$th beta was selected
+
+*Minimize* $\beta^{T}Q\beta + c^{T}\beta + alpha$
+
+*Constraints*
+
+The columns of our A matrix are:
+
+$$\begin{bmatrix}\beta_{1} & \beta_{2} &...&\beta_{i} & z_{1} & z_{2} & ... & z_{i} \end{bmatrix}$$
+
+1. $z_{i} \leq k$
+
+2. $-\beta_{i} - Mz_{i} \leq 0$
+
+3. $\beta_{i} - Mz_{i} \leq 0$
+
+4. $z_{i}$ is binary
+
