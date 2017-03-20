@@ -93,8 +93,34 @@ lasso <- glmnet(X, y, alpha=1, family="gaussian", intercept=FALSE)
 coef(lasso)[,5]
 sum(coef(lasso)[,5] != 0)
 
-# Make predictions
+#######################################
+#[,5]?????
+#######################################
+
+#Q2.Apply both MIQP and Lasso to the given data
+
+#use cross validation to find best lambda for lasso regression
+cv.lasso <- cv.glmnet(X, y, alpha=1,standardize=FALSE,intercept=FALSE)
+plot(cv.lasso, xvar = "lambda", label = TRUE)
+#groph shows cutoff point as log(lambda)=-2, lambda=exp(-2). 
+#The number of variables remains when lambda=exp(-2) is about 8, we can start from here.
+
+lasso <- coef(cv.lasso, s = exp(-2))
+sum(lasso != 0) #check whether the number of variables is 8 when using the cutoff lambda
+
+#try a larger lambda to reduce the number of non-zero betas to 8
+lasso <- coef(cv.lasso, s = exp(-1.8))
+sum(lasso != 0)
+
+#now we have 8 non-zero betas, let's check betas match
+(lasso[2:65] != 0) == (beta_real != 0)
+
+#Q3. Compare the prediction error for each regression
+# Make predictions with MIQP
 predict <- X %*% solution
 actual <- X %*% beta_real
 sum((predict-actual)**2) / sum(actual**2)
 
+# Make predictions with Lasso
+predict_Lasso <- X %*% lasso[2:65]
+sum((predict_Lasso-actual)**2) / sum(actual**2)
