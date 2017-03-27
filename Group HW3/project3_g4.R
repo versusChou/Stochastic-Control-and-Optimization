@@ -1,4 +1,4 @@
-setwd("~/Documents/Github/Optimization/Group HW3")
+# setwd("~/Documents/Github/Optimization/Group HW3")
 load(file = 'data.rdata')
 library(gurobi)
 library(glmnet)
@@ -85,7 +85,7 @@ findBeta <- function(X_, y_, k) {
 }
 
 # Store betas from MIQP
-solution <- findBeta(X, y, 8)$x[1:64]
+solution <- findBeta(X, y, 8)$x[1:dim(X)[2]]
 # Check betas match. Sum should be 64
 sum((solution != 0) == (beta_real != 0))
 
@@ -105,7 +105,8 @@ for (model in 1:length(lasso$lambda)){
 }
 
 # Store prediction error from MIQP
-error_MIQP <- sum(((X %*% solution) - actual)**2) / sum(actual**2)
+predict_MIQP <- X %*% solution
+error_MIQP <- sum((predict_MIQP - actual)**2) / sum(actual**2)
 
 ### Questions 2 and 3 Plots
 
@@ -115,3 +116,4 @@ plot(mat.coef[,1], mat.coef[,2],xlab="lambda", ylab="coefficients", main="Lasso:
 plot(mat.coef[,1], mat.coef[,3], xlab="lambda", ylab="errors", main="Lasso: Lambda vs. error") 
 abline(h = error_MIQP,col = "red")
 legend("topleft","MIQP error",lty=1,cex=1,bty="n",col="red")
+
